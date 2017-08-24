@@ -5,6 +5,9 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
 		<title>Moderator Clone</title>
     <meta charset="UTF-8">
+		
+		<!-- Vue library -->
+    <script src="https://unpkg.com/vue"></script>
   </head>
   <body>
 		<main class="container">
@@ -15,10 +18,15 @@
 				</div>
 			</div>
 			<!-- Series View -->
-			<div>
-				<p>hello</p>
+			<div v-if="view == 'Series'">
+				<!-- Series component -->
+				<series 
+					:p
+				>
+				</series>
 			</div>
 			<!-- Login -->
+			<!-- Remove this after finishing
 			<div>
 				<div class="row">
 					<div class="col-md-12">
@@ -31,7 +39,17 @@
 						<p>Password: <input type="text"></input></p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</main>
+		
+		<!-- Models and Data -->
+		<script src="models/series-model.js"></script>
+		
+		<!-- Components -->
+		<script src="components/series.js"></script>
+		
+		<!-- App Stuff -->
+    <script src="controller/app.js"></script>
+		
   </body>
 </html>
