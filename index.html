@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/vue"></script>
   </head>
   <body>
-		<main class="container">
+		<main class="container main">
 			<!-- Admin View -->
 			<div class="row">
 				<div class="col-md-12">
@@ -21,7 +21,11 @@
 			<div v-if="view == 'Series'">
 				<!-- Series component -->
 				<series 
-					:p
+					v-for="series in allSeries"
+					:series-title="series.title"
+					:series-description="series.description"
+					:series-author="series.author"
+					:series-statements="series.statements"
 				>
 				</series>
 			</div>

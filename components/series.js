@@ -4,7 +4,7 @@ Vue.component('series', {
 	template: `
 						<div class="row">
 							<div class="col-md-12">
-								<h2>{{ seriesTitle }}</h2>
+								<h2>{{ seriesTitle }} by {{ seriesAuthor }}</h2>
 								<p>{{ seriesDescription }}</p>
 							</div>
 						</div>
