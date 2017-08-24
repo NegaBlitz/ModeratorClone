@@ -7,3 +7,5 @@ var app = new Vue({
 	},
 	methods: {}
 });
+
+//app.view = "Login";
