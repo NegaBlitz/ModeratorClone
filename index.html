@@ -14,21 +14,19 @@
 			<!-- Admin View -->
 			<div class="row">
 				<div class="col-md-12">
-					<form>
-						<div>
-								Title: <input type="text" name="seriesTitle">
-						</div>
-						<div>
-								Description: <input type="text" name="serierDescription">
-						</div>
-						<div>
-								Owners of Series: <input type="text" name="serierOwners">
-						</div>
-						<div>
-								<input type="submit" value="Submit">
-								<input type="submit" value="Cancel">
-						</div>
-					</form>
+					<div>
+							Title: <input type="text" v-model = "adminSeriesTitle">
+					</div>
+					<div>
+							Description: <input type="text" v-model = "adminSeriesDescription">
+					</div>
+					<div>
+							Owners of Series: <input type="text" v-model = "adminSeriesOwners">
+					</div>
+					<div>
+						<input type="submit" value="Submit" v-on:click="addSeries(adminSeriesTitle, adminSeriesDescription, adminSeriesOwners)">
+						<input type="submit" value="Cancel">
+					</div>
 				</div>
 			</div>
 			<!-- Series View -->
@@ -36,10 +34,12 @@
 				<!-- Series component -->
 				<series 
 					v-for="series in allSeries"
+					:series = "series"
 					:series-title="series.title"
 					:series-description="series.description"
 					:series-author="series.author"
 					:series-statements="series.statements"
+					:add-statement="addStatement"
 				>
 				</series>
 			</div>
@@ -63,6 +63,7 @@
 		</main>
 		
 		<!-- Models and Data -->
+		<script src="models/statement-model.js"></script>
 		<script src="models/series-model.js"></script>
 		
 		<!-- Components -->
