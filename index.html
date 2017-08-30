@@ -6,7 +6,7 @@
 		<link href="styles/styles.css" rel="stylesheet"/>
 		<title>Moderator Clone</title>
     <meta charset="UTF-8">
-		
+
 		<!-- Vue library -->
     <script src="https://unpkg.com/vue"></script>
   </head>
@@ -14,30 +14,30 @@
 		<main class="container main">
 			<!-- View Selection -->
 			<div class="row">
-				<div class="col-md-4" v-on:click="changeView('Admin')">
+				<div class="col-md-4 hud" v-on:click="changeView('Admin')" >
 					<p>Create a new Series</p>
 				</div>
-				<div class="col-md-4" v-on:click="changeView('Series')">
+				<div class="col-md-4 hud" v-on:click="changeView('Series')">
 					<p>Series</p>
 				</div>
-				<div class="col-md-4" v-on:click="changeView('Login')">
+				<div class="col-md-4 hud" v-on:click="changeView('Login')">
 					<p>Login</p>
 				</div>
 			</div>
 			<!-- Admin View -->
 			<div v-if="view == 'Admin'" class="row">
-				<div class="col-md-12">
+				<div class="text-center col-md-12" style="padding-top: 10px;">
 					<h1 class="text-center">Create a new series</h1>
-					<div>
+					<div style="padding-top: 10px;">
 							<p>Title: </p><input type="text" v-model = "adminSeriesTitle">
 					</div>
-					<div>
+					<div style="padding-top: 10px;">
 							<p>Description:</p><input type="text" v-model = "adminSeriesDescription">
 					</div>
-					<div>
+					<div style="padding-top: 10px;">
 							<p>Owners of Series:</p><input type="text" v-model = "adminSeriesOwners">
 					</div>
-					<div>
+					<div style="padding-top:10px;">
 						<input type="submit" value="Submit" v-on:click="addSeries(adminSeriesTitle, adminSeriesDescription, adminSeriesOwners)">
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 			<div v-if="view == 'Series'">
 				<h1 class="text-center">Available Series</h1>
 				<!-- Series component -->
-				<series 
+				<series
 					v-for="series in allSeries"
 					:series = "series"
 					:series-title="series.title"
@@ -79,17 +79,17 @@
 				</div>
 			</div>
 		</main>
-		
+
 		<!-- Models and Data -->
 		<script src="models/statement-model.js"></script>
 		<script src="models/series-model.js"></script>
-		
+
 		<!-- Components -->
 		<script src="components/series.js"></script>
 		<script src="components/statement.js"></script>
-		
+
 		<!-- App Stuff -->
     <script src="controller/app.js"></script>
-		
+
   </body>
 </html>

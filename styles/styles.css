@@ -18,3 +18,17 @@
 	text-align: center;
 	cursor: pointer;
 }
+
+.hud {
+	font-size:2em;
+	border: 1px solid black;
+	text-align: center;
+	background-color: blue;
+	color:white;
+	cursor:pointer;
+	transition:0.2s;
+}
+
+.hud:hover {
+	background-color: red;
+}
