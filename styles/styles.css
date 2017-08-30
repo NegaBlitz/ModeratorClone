@@ -1,5 +1,5 @@
 .statement-block {
-	background-color: lightblue;
+	background: linear-gradient(white, lightgrey);
 	border-style: solid;
 	border-width: 2px;
 	border-color: lightgrey;
@@ -23,12 +23,16 @@
 	font-size:2em;
 	border: 1px solid black;
 	text-align: center;
-	background-color: blue;
-	color:white;
-	cursor:pointer;
-	transition:0.2s;
+	background: linear-gradient(blue, darkblue);
+	color: white;
+	cursor: pointer;
+	transition: 0.2s;
 }
 
 .hud:hover {
-	background-color: red;
+	background: linear-gradient(red, darkred);
+}
+
+.series {
+	background: linear-gradient(white, lightblue);
 }
