@@ -3,6 +3,7 @@
   <head>
     <link href="http://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+		<link href="styles/styles.css" rel="stylesheet"/>
 		<title>Moderator Clone</title>
     <meta charset="UTF-8">
 		
@@ -11,26 +12,39 @@
   </head>
   <body>
 		<main class="container main">
-			<!-- Admin View -->
+			<!-- View Selection -->
 			<div class="row">
+				<div class="col-md-4" v-on:click="changeView('Admin')">
+					<p>Create a new Series</p>
+				</div>
+				<div class="col-md-4" v-on:click="changeView('Series')">
+					<p>Series</p>
+				</div>
+				<div class="col-md-4" v-on:click="changeView('Login')">
+					<p>Login</p>
+				</div>
+			</div>
+			<!-- Admin View -->
+			<div v-if="view == 'Admin'" class="row">
 				<div class="col-md-12">
+					<h1 class="text-center">Create a new series</h1>
 					<div>
-							Title: <input type="text" v-model = "adminSeriesTitle">
+							<p>Title: </p><input type="text" v-model = "adminSeriesTitle">
 					</div>
 					<div>
-							Description: <input type="text" v-model = "adminSeriesDescription">
+							<p>Description:</p><input type="text" v-model = "adminSeriesDescription">
 					</div>
 					<div>
-							Owners of Series: <input type="text" v-model = "adminSeriesOwners">
+							<p>Owners of Series:</p><input type="text" v-model = "adminSeriesOwners">
 					</div>
 					<div>
 						<input type="submit" value="Submit" v-on:click="addSeries(adminSeriesTitle, adminSeriesDescription, adminSeriesOwners)">
-						<input type="submit" value="Cancel">
 					</div>
 				</div>
 			</div>
 			<!-- Series View -->
 			<div v-if="view == 'Series'">
+				<h1 class="text-center">Available Series</h1>
 				<!-- Series component -->
 				<series 
 					v-for="series in allSeries"
@@ -40,6 +54,10 @@
 					:series-author="series.author"
 					:series-statements="series.statements"
 					:add-statement="addStatement"
+					:inc-score = incScore
+					:dec-score = decScore
+					:hide-statements="series.hideStatements"
+					:toggle-statements-visible="toggleStatementsVisible"
 				>
 				</series>
 			</div>
@@ -47,7 +65,7 @@
 			<div v-if="view == 'Login'">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="text-center"style="font-size:3em; margin-top:3em;">Welcome Aboard</p>
+						<p class="text-center"style="font-size:3em; margin-top:3em;">Login</p>
 					</div>
 				</div>
 				<div class="row">
@@ -68,6 +86,7 @@
 		
 		<!-- Components -->
 		<script src="components/series.js"></script>
+		<script src="components/statement.js"></script>
 		
 		<!-- App Stuff -->
     <script src="controller/app.js"></script>

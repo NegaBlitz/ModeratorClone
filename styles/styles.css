@@ -1,0 +1,20 @@
+.statement-block {
+	background-color: lightblue;
+	border-style: solid;
+	border-width: 2px;
+	border-color: lightgrey;
+}
+
+.up-vote-button {
+	background-color: green;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.down-vote-button {
+	background-color: red;
+	font-size: 20px;
+	text-align: center;
+	cursor: pointer;
+}
